@@ -5,11 +5,9 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 socketio = SocketIO(app)
 
-
-
 @socketio.on('data_send')
 def data_receive(data):
-    # print('received data: ' + str(data))
+    print('received data: ' + str(data))
     emit('data_send', data, broadcast=True)
 
 
